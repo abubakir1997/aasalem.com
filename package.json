@@ -36,7 +36,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "deploy:hosting": "yarn version && yarn build && firebase deploy --only hosting",
-    "deploy": "firebase use aasalem.com && yarn deploy:hosting"
+    "deploy": "firebase use aasalem-com && yarn deploy:hosting"
   },
   "eslintConfig": {
     "extends": [
