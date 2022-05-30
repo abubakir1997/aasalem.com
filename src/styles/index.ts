@@ -1,2 +1,2 @@
-import './inter/inter.css'
+import './inter.css'
 import './index.css'
