@@ -22,7 +22,7 @@ export const Navbar = () => (
             <nav className="relative flex items-center justify-between sm:h-10 lg:justify-start" aria-label="Global">
               <div className="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0">
                 <div className="flex items-center justify-between w-full md:w-auto">
-                  <a href="#">
+                  <a href="/">
                     <span className="sr-only">Abu Bakr Abdelrahman Salem</span>
                     <img alt="Abu Bakr Abdelrahman Salem" className="h-8 w-auto sm:h-10" src={UnDrawBooksIcon} />
                   </a>
@@ -40,7 +40,7 @@ export const Navbar = () => (
                     {item.name}
                   </a>
                 ))}
-                <a href="#" className="font-medium text-lime-600 hover:text-lime-500">
+                <a href="/" className="font-medium text-lime-600 hover:text-lime-500">
                   Log in
                 </a>
               </div>
@@ -81,7 +81,7 @@ export const Navbar = () => (
                   ))}
                 </div>
                 <a
-                  href="#"
+                  href="/"
                   className="block w-full px-5 py-3 text-center font-medium text-lime-600 bg-gray-50 hover:bg-gray-100">
                   Log in
                 </a>
@@ -103,7 +103,7 @@ export const Navbar = () => (
             <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
               <div className="rounded-md shadow">
                 <a
-                  href="#"
+                  href="/"
                   className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-lime-600 hover:bg-lime-700 md:py-4 md:text-lg md:px-10">
                   Get started
                 </a>
