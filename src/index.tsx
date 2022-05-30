@@ -1,15 +1,14 @@
-import 'normalize.css'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import { App } from './pages/App'
 import reportWebVitals from './reportWebVitals'
-import { Index } from './view/Index'
-import './view/index.css'
+import './styles'
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 
 root.render(
   <React.StrictMode>
-    <Index />
+    <App />
   </React.StrictMode>
 )
 
