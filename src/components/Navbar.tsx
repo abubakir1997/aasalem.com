@@ -27,7 +27,7 @@ export const Navbar = () => (
                     <img alt="Abu Bakr Abdelrahman Salem" className="h-8 w-auto sm:h-10" src={UnDrawBooksIcon} />
                   </a>
                   <div className="-mr-2 flex items-center md:hidden">
-                    <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-lime-500">
+                    <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-focus">
                       <span className="sr-only">Open main menu</span>
                       <MenuIcon className="h-6 w-6" aria-hidden="true" />
                     </Popover.Button>
@@ -40,7 +40,7 @@ export const Navbar = () => (
                     {item.name}
                   </a>
                 ))}
-                <a href="/" className="font-medium text-lime-600 hover:text-lime-500">
+                <a href="/" className="font-medium link link-primary link-hover">
                   Log in
                 </a>
               </div>
@@ -64,7 +64,7 @@ export const Navbar = () => (
                     <img className="h-8 w-auto" src={UnDrawBooksIcon} alt="" />
                   </div>
                   <div className="-mr-2">
-                    <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-lime-500">
+                    <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-focus">
                       <span className="sr-only">Close main menu</span>
                       <XIcon className="h-6 w-6" aria-hidden="true" />
                     </Popover.Button>
@@ -82,7 +82,7 @@ export const Navbar = () => (
                 </div>
                 <a
                   href="/"
-                  className="block w-full px-5 py-3 text-center font-medium text-lime-600 bg-gray-50 hover:bg-gray-100">
+                  className="block w-full px-5 py-3 text-center font-medium text-primary bg-gray-50 hover:bg-gray-100">
                   Log in
                 </a>
               </div>
@@ -94,7 +94,7 @@ export const Navbar = () => (
           <div className="sm:text-center lg:text-left">
             <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
               <span className="block xl:inline">Abu Bakr</span>{' '}
-              <span className="block text-lime-600 xl:inline">Abdelrahman Salem</span>
+              <span className="block text-primary xl:inline">Abdelrahman Salem</span>
             </h1>
             <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
               Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet
@@ -102,9 +102,7 @@ export const Navbar = () => (
             </p>
             <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
               <div className="rounded-md shadow">
-                <a
-                  href="/"
-                  className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-lime-600 hover:bg-lime-700 md:py-4 md:text-lg md:px-10">
+                <a href="/" className="btn btn-primary btn-lg">
                   Get started
                 </a>
               </div>
