@@ -1,12 +1,19 @@
 import { NonIdealState } from '@blueprintjs/core'
+import styled from 'styled-components'
 import { AASalemContent } from '../components/AASalemContent'
 import { AASalemNavbar } from '../components/AASalemNavbar'
+
+const AASalemNonIdealState = styled(NonIdealState)`
+  .bp4-non-ideal-state-text {
+    max-width: 100%;
+  }
+`
 
 export const App = () => (
   <>
     <AASalemNavbar />
     <AASalemContent>
-      <NonIdealState
+      <AASalemNonIdealState
         layout="horizontal"
         icon="info-sign"
         title="Under Development"
