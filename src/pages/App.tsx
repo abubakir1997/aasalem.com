@@ -12,6 +12,7 @@ export const App = () => (
         title="Under Development"
         description="Coming Soon, the personal website for Abdelrahman Salem."
       />
+      {/* Add Live Video/GIF as background with Verse as overlay */}
     </AASalemContent>
   </>
 )

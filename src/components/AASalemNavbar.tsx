@@ -6,6 +6,55 @@ import { Container } from '../elements/Container'
 import { useDisclosure } from '../hooks/useDisclosure'
 import { AASalemLogo } from './AASalemLogo'
 
+const AASalemNavbarContentGrid = styled.div`
+  display: grid;
+  grid-gap: 14px 14px;
+  grid-template-columns: auto auto;
+
+  @media (max-width: ${MobileDeviceMaxSize.MOBILE_LANDSCAPE}px) {
+    grid-template-columns: auto;
+  }
+`
+
+const AASalemNavbarContentCardContainer = styled(Card)`
+  padding-left: 0px;
+  padding-right: 0px;
+`
+
+const AASalemNavbarContentCard = styled(Card)`
+  height: 100%;
+`
+
+const AASalemNavbarContentCardLink = styled.a`
+  &,
+  &:hover,
+  &:visited,
+  &:active,
+  &:link {
+    text-decoration: none;
+    color: inherit;
+  }
+`
+
+const AASalemNavbarContent = () => (
+  <AASalemNavbarContentCardContainer elevation={2}>
+    <Container>
+      <AASalemNavbarContentGrid>
+        {NavigationConfig.map((navigation, i) => (
+          <AASalemNavbarContentCardLink href={navigation.path} key={`${navigation.path}-${i}`}>
+            <AASalemNavbarContentCard interactive>
+              <H4>
+                <a href={navigation.path}>{navigation.name}</a>
+              </H4>
+              <p>{navigation.description}</p>
+            </AASalemNavbarContentCard>
+          </AASalemNavbarContentCardLink>
+        ))}
+      </AASalemNavbarContentGrid>
+    </Container>
+  </AASalemNavbarContentCardContainer>
+)
+
 const AASalemNavbarLogoContainer = styled.div`
   display: inline;
   position: absolute;
@@ -28,52 +77,9 @@ const AASalemNavbarContainer = styled(Navbar)`
   }
 `
 
-const AASalemNavbarContentGrid = styled.div`
-  display: grid;
-  grid-gap: 14px 14px;
-  grid-template-columns: auto auto;
-
-  @media (max-width: ${MobileDeviceMaxSize.MOBILE_LANDSCAPE}px) {
-    grid-template-columns: auto;
-  }
-
-  .bp4-card {
-    height: 100%;
-  }
-
-  > a,
-  > a:hover,
-  > a:visited,
-  > a:active,
-  > a:link {
-    text-decoration: none;
-    color: inherit;
-  }
+const AASalemNavbarContentCollapse = styled(Collapse as any)`
+  overflow-y: visible;
 `
-
-const AASalemNavbarContentCard = styled(Card)`
-  padding-left: 0px;
-  padding-right: 0px;
-`
-
-const AASalemNavbarContent = () => (
-  <AASalemNavbarContentCard elevation={2}>
-    <Container>
-      <AASalemNavbarContentGrid>
-        {NavigationConfig.map((navigation, i) => (
-          <a href={navigation.path} key={`${navigation.path}-${i}`}>
-            <Card interactive>
-              <H4>
-                <a href={navigation.path}>{navigation.name}</a>
-              </H4>
-              <p>{navigation.description}</p>
-            </Card>
-          </a>
-        ))}
-      </AASalemNavbarContentGrid>
-    </Container>
-  </AASalemNavbarContentCard>
-)
 
 export const AASalemNavbar = () => {
   const [isContentOpen, toggleContentOpen] = useDisclosure(true)
@@ -100,9 +106,9 @@ export const AASalemNavbar = () => {
           </AASalemNavbarLogoContainer>
         </Container>
       </AASalemNavbarContainer>
-      <Collapse isOpen={isContentOpen}>
+      <AASalemNavbarContentCollapse isOpen={isContentOpen}>
         <AASalemNavbarContent />
-      </Collapse>
+      </AASalemNavbarContentCollapse>
     </>
   )
 }
