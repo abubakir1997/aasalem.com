@@ -8,7 +8,7 @@ import { AppLogo } from './AppLogo'
 const AppNavbarContentGrid = styled.div`
   display: grid;
   grid-gap: 14px 14px;
-  grid-template-columns: auto auto;
+  grid-template-columns: minmax(auto, calc(50% - 14px)) minmax(auto, calc(50% - 14px));
 
   @media (max-width: ${MobileDeviceMaxSize.MOBILE_LANDSCAPE}px) {
     grid-template-columns: auto;
@@ -35,21 +35,32 @@ const AppNavbarContentCardLink = styled.a`
   }
 `
 
+const AppNavbarContentGroup = styled.div`
+  &:not(:first-child) {
+    margin-top: 14px;
+  }
+`
+
 const AppNavbarContent = () => (
   <AppNavbarContentCardContainer elevation={2}>
     <Container>
-      <AppNavbarContentGrid>
-        {NavigationConfig.map((navigation, i) => (
-          <AppNavbarContentCardLink href={navigation.path} key={`${navigation.path}-${i}`}>
-            <AppNavbarContentCard interactive>
-              <H4>
-                <a href={navigation.path}>{navigation.name}</a>
-              </H4>
-              <p>{navigation.description}</p>
-            </AppNavbarContentCard>
-          </AppNavbarContentCardLink>
-        ))}
-      </AppNavbarContentGrid>
+      {NavigationConfig.map((NavigationGroup, i) => (
+        <AppNavbarContentGroup key={`${NavigationGroup.groupTitle}-${i}`}>
+          <H4>{NavigationGroup.groupTitle}</H4>
+          <AppNavbarContentGrid>
+            {NavigationGroup.groupLinks.map((NavigationGroupItem, i) => (
+              <AppNavbarContentCardLink href={NavigationGroupItem.path} key={`${NavigationGroupItem.path}-${i}`}>
+                <AppNavbarContentCard interactive>
+                  <H4>
+                    <a href={NavigationGroupItem.path}>{NavigationGroupItem.name}</a>
+                  </H4>
+                  <p>{NavigationGroupItem.description}</p>
+                </AppNavbarContentCard>
+              </AppNavbarContentCardLink>
+            ))}
+          </AppNavbarContentGrid>
+        </AppNavbarContentGroup>
+      ))}
     </Container>
   </AppNavbarContentCardContainer>
 )
