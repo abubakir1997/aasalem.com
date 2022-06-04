@@ -13,7 +13,7 @@ export const AppFooterContainer = styled.footer`
 `
 
 export const AppFooterSocialMediaContainer = styled.div`
-  border-bottom: 1px solid rgb(209, 213, 219);
+  border: 1px solid rgb(209, 213, 219);
   padding: 1.5rem;
 
   > ${Container} {

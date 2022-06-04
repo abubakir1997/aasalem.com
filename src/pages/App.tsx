@@ -1,3 +1,4 @@
+import { AppContent } from '../components/AppContent'
 import { AppFooter } from '../components/AppFooter'
 import { AppNavbar } from '../components/AppNavbar'
 import { AppVideoHero } from '../components/AppVideoHero'
@@ -10,6 +11,7 @@ export const App = () => {
     <>
       <AppNavbar isContentOpen={isContentOpen} toggleContentOpen={toggleContentOpen} />
       <AppVideoHero isContentOpen={isContentOpen} />
+      <AppContent />
       <AppFooter />
     </>
   )
