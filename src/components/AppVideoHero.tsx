@@ -55,7 +55,7 @@ const AppVideoOverlayHeader = styled.h1<AppVideoOverlayHeaderProps>`
 
   font-size: 4.5rem;
 
-  @media (max-width: ${MobileDeviceMaxSize.TABLE}px) {
+  @media (max-width: ${MobileDeviceMaxSize.TABLET}px) {
     font-size: 3.5rem;
     transform: translateY(0);
   }

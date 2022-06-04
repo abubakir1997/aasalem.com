@@ -7,8 +7,8 @@ import { AppLogo } from './AppLogo'
 
 const AppNavbarContentGrid = styled.div`
   display: grid;
-  grid-gap: 14px 14px;
-  grid-template-columns: minmax(auto, calc(50% - 14px)) minmax(auto, calc(50% - 14px));
+  grid-gap: 14px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 
   @media (max-width: ${MobileDeviceMaxSize.MOBILE_LANDSCAPE}px) {
     grid-template-columns: auto;
@@ -44,6 +44,7 @@ const AppNavbarContentGroup = styled.div`
 const AppNavbarContentGroupTitle = styled.div`
   font-size: 14px;
   text-transform: uppercase;
+  font-weight: 600;
   letter-spacing: 0.1rem;
   margin-bottom: 7px;
 `
