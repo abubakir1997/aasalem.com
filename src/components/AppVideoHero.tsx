@@ -6,6 +6,7 @@ import AppHeroVideo from '../images/aasalem-hero.mp4'
 const AppVideoContainer = styled.div`
   position: relative;
   max-height: calc(100% - 60px);
+  min-height: 650px;
 `
 
 const AppVideo = styled.video`
@@ -14,6 +15,7 @@ const AppVideo = styled.video`
   width: 100vw;
   min-width: 100vw;
   max-height: calc(100vh - 60px);
+  min-height: 650px;
   object-fit: cover;
 `
 
