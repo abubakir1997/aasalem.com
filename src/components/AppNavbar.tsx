@@ -1,4 +1,4 @@
-import { Button, Card, Collapse, H4, Navbar, NavbarGroup } from '@blueprintjs/core'
+import { Button, Card, Classes, Collapse, H4, Navbar, NavbarGroup } from '@blueprintjs/core'
 import styled from 'styled-components'
 import { MobileDeviceMaxSize } from '../config/MobileDeviceMaxSize'
 import { NavigationConfig } from '../config/NavigationConfig'
@@ -41,12 +41,21 @@ const AppNavbarContentGroup = styled.div`
   }
 `
 
+const AppNavbarContentGroupTitle = styled.div`
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  margin-bottom: 7px;
+`
+
 const AppNavbarContent = () => (
   <AppNavbarContentCardContainer elevation={2}>
     <Container>
       {NavigationConfig.map((NavigationGroup, i) => (
         <AppNavbarContentGroup key={`${NavigationGroup.groupTitle}-${i}`}>
-          <H4>{NavigationGroup.groupTitle}</H4>
+          <AppNavbarContentGroupTitle className={Classes.TEXT_MUTED}>
+            {NavigationGroup.groupTitle}
+          </AppNavbarContentGroupTitle>
           <AppNavbarContentGrid>
             {NavigationGroup.groupLinks.map((NavigationGroupItem, i) => (
               <AppNavbarContentCardLink href={NavigationGroupItem.path} key={`${NavigationGroupItem.path}-${i}`}>
