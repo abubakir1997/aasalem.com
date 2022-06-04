@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { MobileDeviceMaxSize } from '../config/MobileDeviceMaxSize'
 import { NavigationConfig } from '../config/NavigationConfig'
 import { Container } from '../elements/Container'
+import AppLogoImage from '../images/aasalem-logo.png'
 
 export const AppFooterContainer = styled.footer`
   background-color: rgb(243, 244, 246);
@@ -56,6 +57,23 @@ const AppFooterSocialMediaLink = styled.a`
 
 const AppFooterContentContainer = styled.div`
   padding: 2.5rem 1.5rem;
+  position: relative;
+
+  &:after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: 0.1;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    background-image: url(${AppLogoImage});
+    background-repeat: no-repeat;
+    background-size: 256px;
+    filter: grayscale(100%);
+  }
 `
 
 const AppFooterContentGrid = styled.div`
