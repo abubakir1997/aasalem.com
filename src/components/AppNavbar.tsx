@@ -1,7 +1,8 @@
-import { Button, Card, Classes, Collapse, H4, Navbar, NavbarGroup } from '@blueprintjs/core'
+import { Button, Card, Classes, H4, Navbar, NavbarGroup } from '@blueprintjs/core'
 import styled from 'styled-components'
 import { MobileDeviceMaxSize } from '../config/MobileDeviceMaxSize'
 import { NavigationConfig } from '../config/NavigationConfig'
+import { Collapser } from '../elements/Collapser'
 import { Container } from '../elements/Container'
 import { useDisclosure } from '../hooks/useDisclosure'
 import { AppLogo } from './AppLogo'
@@ -98,15 +99,12 @@ const AppNavbarContainer = styled(Navbar)`
   }
 `
 
-const AppNavbarContentCollapse = styled(Collapse as any)`
-  overflow-y: visible;
-`
-
 const AppNavbarWrapper = styled.div`
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
+  height: 60px;
   z-index: 1000;
 `
 
@@ -135,9 +133,9 @@ export const AppNavbar = () => {
           </AppNavbarLogoContainer>
         </Container>
       </AppNavbarContainer>
-      <AppNavbarContentCollapse isOpen={isContentOpen}>
+      <Collapser isOpen={isContentOpen}>
         <AppNavbarContent />
-      </AppNavbarContentCollapse>
+      </Collapser>
     </AppNavbarWrapper>
   )
 }

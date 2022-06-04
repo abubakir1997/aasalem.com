@@ -1,6 +1,7 @@
 import { Colors } from '@blueprintjs/core'
 import { FaEnvelope, FaFacebookF, FaGithub, FaHome, FaLinkedinIn, FaPhone, FaYoutube } from 'react-icons/fa'
 import styled from 'styled-components'
+import { Links } from '../config/Links'
 import { MobileDeviceMaxSize } from '../config/MobileDeviceMaxSize'
 import { NavigationConfig } from '../config/NavigationConfig'
 import { Container } from '../elements/Container'
@@ -60,6 +61,7 @@ const AppFooterContentContainer = styled.div`
   position: relative;
 
   &:after {
+    z-index: 0;
     content: '';
     display: block;
     width: 100%;
@@ -73,6 +75,11 @@ const AppFooterContentContainer = styled.div`
     background-repeat: no-repeat;
     background-size: 256px;
     filter: grayscale(100%);
+  }
+
+  > ${Container} {
+    z-index: 1;
+    position: relative;
   }
 `
 
@@ -128,16 +135,16 @@ export const AppFooter = () => (
       <Container>
         <AppFooterSocialMediaText>Get connected with me on social networks:</AppFooterSocialMediaText>
         <AppFooterSocialMedia>
-          <AppFooterSocialMediaLink>
+          <AppFooterSocialMediaLink target="_blank" href={Links.YOUTUBE}>
             <FaYoutube size={16} />
           </AppFooterSocialMediaLink>
-          <AppFooterSocialMediaLink>
+          <AppFooterSocialMediaLink target="_blank" href={Links.FACEBOOK}>
             <FaFacebookF size={16} />
           </AppFooterSocialMediaLink>
-          <AppFooterSocialMediaLink>
+          <AppFooterSocialMediaLink target="_blank" href={Links.LINKEDIN}>
             <FaLinkedinIn size={16} />
           </AppFooterSocialMediaLink>
-          <AppFooterSocialMediaLink>
+          <AppFooterSocialMediaLink target="_blank" href={Links.GITHUB}>
             <FaGithub size={16} />
           </AppFooterSocialMediaLink>
         </AppFooterSocialMedia>
@@ -169,10 +176,10 @@ export const AppFooter = () => (
               <FaHome size={18} /> Philadelphia, PA
             </AppFooterContentText>
             <AppFooterContentText>
-              <FaEnvelope size={16} /> abubakir1997@gmail.com
+              <FaEnvelope size={16} /> <a href="mailto:abubakir1997@gmail.com">abubakir1997@gmail.com</a>
             </AppFooterContentText>
             <AppFooterContentText>
-              <FaPhone size={16} /> +1 (215) 337-5567
+              <FaPhone size={16} /> <a href="tel:12153375567">+1 (215) 337-5567</a>
             </AppFooterContentText>
           </div>
         </AppFooterContentGrid>
@@ -180,7 +187,7 @@ export const AppFooter = () => (
     </AppFooterContentContainer>
     <AppFooterCopyRightContainer>
       <span>© {new Date().getFullYear()} Copyright: </span>
-      <AppFooterCopyRightLink href="#">Abdelrahman Salem</AppFooterCopyRightLink>
+      <AppFooterCopyRightLink href="/">Abdelrahman Salem</AppFooterCopyRightLink>
     </AppFooterCopyRightContainer>
   </AppFooterContainer>
 )
