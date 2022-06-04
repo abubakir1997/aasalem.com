@@ -61,6 +61,59 @@ const AppVideoOverlayHeader = styled.h1`
   }
 `
 
+const AppVideoOverlayHeaderEnglish = styled.div`
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.5rem;
+  margin-top: 2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  white-space: nowrap;
+
+  &:before,
+  &:after {
+    font-size: 6rem;
+    line-height: 6rem;
+  }
+
+  &:before {
+    content: '(';
+  }
+  &:after {
+    content: ')';
+  }
+
+  @media (max-width: ${MobileDeviceMaxSize.TABLET}px) {
+    font-size: 1.25rem;
+
+    &:before,
+    &:after {
+      font-size: 5rem;
+      line-height: 5rem;
+    }
+  }
+  @media (max-width: ${MobileDeviceMaxSize.MOBILE_LANDSCAPE}px) {
+    font-size: 1rem;
+
+    &:before,
+    &:after {
+      font-size: 4rem;
+      line-height: 4rem;
+    }
+  }
+  @media (max-width: ${MobileDeviceMaxSize.MOBILE_PORTRAIT}px) {
+    font-size: 0.75rem;
+
+    &:before,
+    &:after {
+      font-size: 3rem;
+      line-height: 3rem;
+    }
+  }
+`
+
 export const AppVideoHero = () => (
   <AppVideoContainer>
     <AppVideo autoPlay loop muted>
@@ -71,6 +124,13 @@ export const AppVideoHero = () => (
       <AppVideoOverlayHeader>
         <div>ﮱﯓﯔﯕﯖﯗ ﯘ</div>
         <div>ﯙﯚﯛﯜﯝﯞ</div>
+        <AppVideoOverlayHeaderEnglish>
+          <div>
+            <div>And the servants of the Most Merciful are those</div>
+            <div>who walk upon the earth easily, and when the ignorant</div>
+            <div>address them (harshly), they say (words of) peace</div>
+          </div>
+        </AppVideoOverlayHeaderEnglish>
       </AppVideoOverlayHeader>
     </AppVideoOverlay>
   </AppVideoContainer>
