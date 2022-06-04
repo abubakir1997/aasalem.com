@@ -33,11 +33,7 @@ const AppVideoOverlay = styled.div`
   justify-content: center;
 `
 
-interface AppVideoOverlayHeaderProps {
-  isContentOpen: boolean
-}
-
-const AppVideoOverlayHeader = styled.h1<AppVideoOverlayHeaderProps>`
+const AppVideoOverlayHeader = styled.h1`
   @font-face {
     font-family: 'Mushaf Page 365';
     src: local('QCF_P365'),
@@ -50,14 +46,10 @@ const AppVideoOverlayHeader = styled.h1<AppVideoOverlayHeaderProps>`
   font-family: 'Mushaf Page 365';
 
   margin: auto 0;
-  transition: transform 300ms ease 200ms;
-  transform: translateY(${(props) => (props.isContentOpen ? '-75%' : 0)});
-
   font-size: 4.5rem;
 
   @media (max-width: ${MobileDeviceMaxSize.TABLET}px) {
     font-size: 3.5rem;
-    transform: translateY(0);
   }
   @media (max-width: ${MobileDeviceMaxSize.MOBILE_LANDSCAPE}px) {
     font-size: 2.3rem;
@@ -67,16 +59,14 @@ const AppVideoOverlayHeader = styled.h1<AppVideoOverlayHeaderProps>`
   }
 `
 
-export interface AppVideoHeroProps extends AppVideoOverlayHeaderProps {}
-
-export const AppVideoHero = ({ isContentOpen }: AppVideoHeroProps) => (
+export const AppVideoHero = () => (
   <AppVideoContainer>
     <AppVideo autoPlay loop muted>
       <source src={AppHeroVideo} type="video/mp4" />
       Your browser does not support the video tag.
     </AppVideo>
     <AppVideoOverlay>
-      <AppVideoOverlayHeader isContentOpen={isContentOpen}>
+      <AppVideoOverlayHeader>
         <div>ﮱﯓﯔﯕﯖﯗ ﯘ</div>
         <div>ﯙﯚﯛﯜﯝﯞ</div>
       </AppVideoOverlayHeader>

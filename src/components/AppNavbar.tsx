@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { MobileDeviceMaxSize } from '../config/MobileDeviceMaxSize'
 import { NavigationConfig } from '../config/NavigationConfig'
 import { Container } from '../elements/Container'
+import { useDisclosure } from '../hooks/useDisclosure'
 import { AppLogo } from './AppLogo'
 
 const AppNavbarContentGrid = styled.div`
@@ -101,14 +102,19 @@ const AppNavbarContentCollapse = styled(Collapse as any)`
   overflow-y: visible;
 `
 
-export interface AppNavbarProps {
-  isContentOpen: boolean
-  toggleContentOpen: () => any
-}
+const AppNavbarWrapper = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+`
 
-export const AppNavbar = ({ isContentOpen, toggleContentOpen }: AppNavbarProps) => {
+export const AppNavbar = () => {
+  const [isContentOpen, toggleContentOpen] = useDisclosure()
+
   return (
-    <>
+    <AppNavbarWrapper>
       <AppNavbarContainer>
         <Container>
           <NavbarGroup align="left">
@@ -132,6 +138,6 @@ export const AppNavbar = ({ isContentOpen, toggleContentOpen }: AppNavbarProps) 
       <AppNavbarContentCollapse isOpen={isContentOpen}>
         <AppNavbarContent />
       </AppNavbarContentCollapse>
-    </>
+    </AppNavbarWrapper>
   )
 }
