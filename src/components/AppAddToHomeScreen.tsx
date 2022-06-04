@@ -34,6 +34,7 @@ const AppAddToHomeScreenDetails = styled.div`
   @media (max-width: ${MobileDeviceMaxSize.TABLET}px) {
     margin-left: 0;
     margin-top: 4rem;
+    font-size: 26px;
   }
 `
 
