@@ -1,4 +1,4 @@
-import { Colors } from '@blueprintjs/core'
+import { Classes, Colors } from '@blueprintjs/core'
 import { FaEnvelope, FaFacebookF, FaGithub, FaHome, FaLinkedinIn, FaPhone, FaYoutube } from 'react-icons/fa'
 import styled from 'styled-components'
 import { Links } from '../config/Links'
@@ -11,11 +11,20 @@ export const AppFooterContainer = styled.footer`
   background-color: rgb(243, 244, 246);
   color: rgb(75, 85, 99);
   text-align: left;
+
+  .${Classes.DARK} & {
+    background-color: ${Colors.DARK_GRAY3};
+    color: ${Colors.LIGHT_GRAY3};
+  }
 `
 
 export const AppFooterSocialMediaContainer = styled.div`
   border: 1px solid rgb(209, 213, 219);
   padding: 1.5rem;
+
+  .${Classes.DARK} & {
+    border-color: ${Colors.DARK_GRAY2};
+  }
 
   > ${Container} {
     display: flex;
@@ -44,7 +53,6 @@ const AppFooterSocialMedia = styled.div`
 `
 
 const AppFooterSocialMediaLink = styled.a`
-  color: rgb(75, 85, 99);
   transition: color 300ms ease;
 
   &:hover {
@@ -123,6 +131,10 @@ const AppFooterCopyRightContainer = styled.div`
   padding: 1.5rem;
   font-size: 16px;
   background-color: rgb(229, 231, 235);
+
+  .${Classes.DARK} & {
+    background-color: ${Colors.DARK_GRAY1};
+  }
 `
 
 const AppFooterCopyRightLink = styled.a`

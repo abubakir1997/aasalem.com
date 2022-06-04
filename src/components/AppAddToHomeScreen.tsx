@@ -11,6 +11,7 @@ const AppAddToHomeScreenContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
+  background-color: inherit;
 
   @media (max-width: ${MobileDeviceMaxSize.TABLET}px) {
     flex-direction: column;

@@ -4,6 +4,7 @@ import { MobileDeviceMaxSize } from '../config/MobileDeviceMaxSize'
 import { NavigationConfig } from '../config/NavigationConfig'
 import { Collapser } from '../elements/Collapser'
 import { Container } from '../elements/Container'
+import { AppTheme } from '../hooks/useAppTheme'
 import { useDisclosure } from '../hooks/useDisclosure'
 import { AppLogo } from './AppLogo'
 
@@ -92,6 +93,10 @@ const AppNavbarLogoContainer = styled.div`
 const AppNavbarContainer = styled(Navbar)`
   padding: 0;
 
+  .${Classes.DARK} & {
+    box-shadow: 0 0 0 1px rgb(17 20 24 / 10%), 0 1px 1px rgb(17 20 24 / 20%);
+  }
+
   &,
   > ${Container}, > ${Container} > .bp4-navbar-group,
   > ${Container} > ${AppNavbarLogoContainer} {
@@ -108,7 +113,12 @@ const AppNavbarWrapper = styled.div`
   z-index: 1000;
 `
 
-export const AppNavbar = () => {
+export interface AppNavbarProps {
+  appTheme: AppTheme
+  toggleAppTheme: () => any
+}
+
+export const AppNavbar = ({ appTheme, toggleAppTheme }: AppNavbarProps) => {
   const [isContentOpen, toggleContentOpen] = useDisclosure()
 
   return (
@@ -131,6 +141,9 @@ export const AppNavbar = () => {
               <AppLogo />
             </a>
           </AppNavbarLogoContainer>
+          <NavbarGroup align="right">
+            <Button large minimal onClick={toggleAppTheme} icon={appTheme === 'dark' ? 'flash' : 'moon'} />
+          </NavbarGroup>
         </Container>
       </AppNavbarContainer>
       <Collapser isOpen={isContentOpen}>

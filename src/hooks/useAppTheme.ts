@@ -1,3 +1,4 @@
+import { Classes } from '@blueprintjs/core'
 import { useCallback, useEffect, useState } from 'react'
 
 export type AppTheme = 'light' | 'dark'
@@ -9,7 +10,8 @@ export const useAppTheme = () => {
 
   useEffect(() => {
     const currentTheme = theme || getDefaultTheme()
-    document.getElementsByTagName('html')[0].setAttribute('data-theme', currentTheme)
+    if (currentTheme === 'dark') document.body.classList.add(Classes.DARK)
+    else document.body.classList.remove(Classes.DARK)
     window.localStorage.setItem('aasalem-theme', currentTheme)
     setTheme(currentTheme)
   }, [theme, getDefaultTheme])
