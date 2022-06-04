@@ -1,10 +1,10 @@
+import { Colors } from '@blueprintjs/core'
+import { BsPlusSquare } from 'react-icons/bs'
+import { FiShare } from 'react-icons/fi'
 import styled from 'styled-components'
 import { MobileDeviceMaxSize } from '../config/MobileDeviceMaxSize'
 import { PhoneMockup } from '../elements/PhoneMockup'
-import { FiShare } from 'react-icons/fi'
-import { BsPlusSquare } from 'react-icons/bs'
 import AppContentPhoneMockupImage from '../images/aasalem-add-to-homescreen.png'
-import { Colors, Text } from '@blueprintjs/core'
 
 const AppContentContainer = styled.div`
   padding: 4rem;
