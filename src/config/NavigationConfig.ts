@@ -19,15 +19,21 @@ export const NavigationConfig: INavigationConfig = [
     groupTitle: 'Islamic',
     groupLinks: [
       {
+        name: 'The Journey of Growth',
+        path: '#',
+        description:
+          'The following documents my personal growth jorney as a Muslim. The intent is to grow in knowledge, understanding, and implementation in an attempt to become better as a beliver and servant of Allah.',
+      },
+      {
+        name: 'Reflections',
+        path: '#',
+        description: 'My personal reflections on various topics.',
+      },
+      {
         name: 'Khutab',
         path: '#',
         description:
-          'Khutab or sermons are lectures gives every Friday which is regarded as the most valued day of the week in the Islamic faith.',
-      },
-      {
-        name: 'Research',
-        path: '#',
-        description: 'Browse through a list of research topics across multiple categories.',
+          'Khutab or sermons are lectures given every Friday which is regarded as the most valued day of the week in the Islamic faith.',
       },
       {
         name: 'Quran',
@@ -36,10 +42,10 @@ export const NavigationConfig: INavigationConfig = [
           'A colleciton of Quran recitations either in complete or snippets. The Quran is the revelation recieved by Prophet Muhammad from Allah (God) through the Angel Gabriel.',
       },
       {
-        name: 'Athkar',
+        name: 'Books and Articles',
         path: '#',
         description:
-          'Your daily morning/evening, sleep/awake, and prayer Athkar. Athkar are recoccuring prayers that are done at specified times or events according to what was observed from prophet Muhammad.',
+          "Brief summaries and thoughts on some of the books and articles I've read spanning accross different Islamic topics.",
       },
     ],
   },
