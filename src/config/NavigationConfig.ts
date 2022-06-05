@@ -20,30 +20,30 @@ export const NavigationConfig: INavigationConfig = [
     groupLinks: [
       {
         name: 'The Journey of Growth',
-        path: '#',
+        path: 'journey',
         description:
           'The following documents my personal growth jorney as a Muslim. The intent is to grow in knowledge, understanding, and implementation in an attempt to become better as a beliver and servant of Allah.',
       },
       {
         name: 'Reflections',
-        path: '#',
+        path: 'reflections',
         description: 'My personal reflections on various topics.',
       },
       {
         name: 'Khutab',
-        path: '#',
+        path: 'khutab',
         description:
           'Khutab or sermons are lectures given every Friday which is regarded as the most valued day of the week in the Islamic faith.',
       },
       {
         name: 'Quran',
-        path: '#',
+        path: 'quran',
         description:
           'A colleciton of Quran recitations either in complete or snippets. The Quran is the revelation recieved by Prophet Muhammad from Allah (God) through the Angel Gabriel.',
       },
       {
         name: 'Books and Articles',
-        path: '#',
+        path: 'books',
         description:
           "Brief summaries and thoughts on some of the books and articles I've read spanning accross different Islamic topics.",
       },
@@ -54,7 +54,7 @@ export const NavigationConfig: INavigationConfig = [
     groupLinks: [
       {
         name: 'Resume',
-        path: '#',
+        path: 'resume',
         description: 'My professional software engineering resume.',
       },
       {

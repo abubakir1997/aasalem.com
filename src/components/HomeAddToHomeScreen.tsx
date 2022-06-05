@@ -1,12 +1,13 @@
 import { Colors } from '@blueprintjs/core'
 import { BsPlusSquare } from 'react-icons/bs'
 import { FiShare } from 'react-icons/fi'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { MobileDeviceMaxSize } from '../config/MobileDeviceMaxSize'
 import { PhoneMockup } from '../elements/PhoneMockup'
-import AddToHomeScreenImage from '../images/aasalem-add-to-homescreen.png'
+import HomeAddToHomeScreenImage from '../images/aasalem-add-to-homescreen.png'
 
-const AddToHomeScreenContainer = styled.div`
+const HomeAddToHomeScreenContainer = styled.div`
   padding: 4rem;
   display: flex;
   flex-direction: row;
@@ -20,7 +21,7 @@ const AddToHomeScreenContainer = styled.div`
   }
 `
 
-const AddToHomeScreenDetails = styled.div`
+const HomeAddToHomeScreenDetails = styled.div`
   margin-top: auto;
   margin-bottom: auto;
   margin-left: 4rem;
@@ -38,39 +39,39 @@ const AddToHomeScreenDetails = styled.div`
   }
 `
 
-const AddToHomeScreenTitle = styled.div`
+const HomeAddToHomeScreenTitle = styled.div`
   font-size: 36px;
   font-weight: 800;
   margin-bottom: 2rem;
 `
 
-const AddToHomeScreenDescription = styled.p`
+const HomeAddToHomeScreenDescription = styled.p`
   font-weight: 500;
   margin-top: 2rem;
 `
 
-const AddToHomeScreenImageElement = styled.img`
+const HomeAddToHomeScreenImageElement = styled.img`
   width: 100%;
   object-fit: contain;
 `
 
-export const AddToHomeScreen = () => (
-  <AddToHomeScreenContainer>
+export const HomeAddToHomeScreen = () => (
+  <HomeAddToHomeScreenContainer>
     <PhoneMockup>
-      <AddToHomeScreenImageElement src={AddToHomeScreenImage} alt="Add to Home Screen" />
+      <HomeAddToHomeScreenImageElement src={HomeAddToHomeScreenImage} alt="Add to Home Screen" />
     </PhoneMockup>
-    <AddToHomeScreenDetails>
-      <AddToHomeScreenTitle>Add to Home Screen</AddToHomeScreenTitle>
+    <HomeAddToHomeScreenDetails>
+      <HomeAddToHomeScreenTitle>Add to Home Screen</HomeAddToHomeScreenTitle>
       <p>
         Click the share button <FiShare size={28} color={Colors.BLUE3} />
       </p>
       <p>
         Select Add to Home Screen <BsPlusSquare size={28} color={Colors.BLUE3} />
       </p>
-      <AddToHomeScreenDescription>
+      <HomeAddToHomeScreenDescription>
         Stay up to date with all content from <br />
-        <a href="/">aasalem.com</a>
-      </AddToHomeScreenDescription>
-    </AddToHomeScreenDetails>
-  </AddToHomeScreenContainer>
+        <Link to="/">aasalem.com</Link>
+      </HomeAddToHomeScreenDescription>
+    </HomeAddToHomeScreenDetails>
+  </HomeAddToHomeScreenContainer>
 )

@@ -1,5 +1,6 @@
-import { Classes, Colors } from '@blueprintjs/core'
+import { Colors } from '@blueprintjs/core'
 import { FaEnvelope, FaFacebookF, FaGithub, FaHome, FaLinkedinIn, FaPhone, FaYoutube } from 'react-icons/fa'
+import { ExternalLink } from '../elements/ExternalLink'
 import styled from 'styled-components'
 import { Links } from '../config/Links'
 import { MobileDeviceMaxSize } from '../config/MobileDeviceMaxSize'
@@ -12,7 +13,7 @@ export const AppFooterContainer = styled.footer`
   color: rgb(75, 85, 99);
   text-align: left;
 
-  .${Classes.DARK} & {
+  .bp4-dark & {
     background-color: ${Colors.DARK_GRAY3};
     color: ${Colors.LIGHT_GRAY3};
   }
@@ -22,7 +23,7 @@ export const AppFooterSocialMediaContainer = styled.div`
   border: 1px solid rgb(209, 213, 219);
   padding: 1.5rem;
 
-  .${Classes.DARK} & {
+  .bp4-dark & {
     border-color: ${Colors.DARK_GRAY2};
   }
 
@@ -132,12 +133,12 @@ const AppFooterCopyRightContainer = styled.div`
   font-size: 16px;
   background-color: rgb(229, 231, 235);
 
-  .${Classes.DARK} & {
+  .bp4-dark & {
     background-color: ${Colors.DARK_GRAY1};
   }
 `
 
-const AppFooterCopyRightLink = styled.a`
+const AppFooterCopyRightLink = styled(ExternalLink)`
   font-weight: 600;
 `
 
@@ -177,7 +178,9 @@ export const AppFooter = () => (
             {NavigationConfig.map((NavigationGroup) =>
               NavigationGroup.groupLinks.map((NavigationItem, i) => (
                 <AppFooterContentText key={`${NavigationItem.path}-${i}`}>
-                  <a href={NavigationItem.path}>{NavigationItem.name}</a>
+                  <ExternalLink to={NavigationItem.path} target={NavigationItem.target}>
+                    {NavigationItem.name}
+                  </ExternalLink>
                 </AppFooterContentText>
               ))
             )}
@@ -199,7 +202,7 @@ export const AppFooter = () => (
     </AppFooterContentContainer>
     <AppFooterCopyRightContainer>
       <span>© {new Date().getFullYear()} Copyright: </span>
-      <AppFooterCopyRightLink href="/">Abdelrahman Salem</AppFooterCopyRightLink>
+      <AppFooterCopyRightLink to="/">Abdelrahman Salem</AppFooterCopyRightLink>
     </AppFooterCopyRightContainer>
   </AppFooterContainer>
 )

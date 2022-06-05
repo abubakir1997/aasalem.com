@@ -1,6 +1,6 @@
-import { Button, Card, Classes, H4, Navbar, NavbarGroup } from '@blueprintjs/core'
-import { FiExternalLink } from 'react-icons/fi'
-import styled from 'styled-components'
+import { Icon, Button, Card, Classes, Colors, H4, Navbar, NavbarGroup } from '@blueprintjs/core'
+import { ExternalLink, ExternalNavLink } from '../elements/ExternalLink'
+import styled, { css } from 'styled-components'
 import { MobileDeviceMaxSize } from '../config/MobileDeviceMaxSize'
 import { NavigationConfig } from '../config/NavigationConfig'
 import { Collapser } from '../elements/Collapser'
@@ -22,13 +22,40 @@ const AppNavbarContentGrid = styled.div`
 const AppNavbarContentCardContainer = styled(Card)`
   padding-left: 0px;
   padding-right: 0px;
+  max-height: calc(100vh - 60px);
+  overflow: auto;
 `
 
-const AppNavbarContentCard = styled(Card)`
+const AppNavbarContentCard = styled(Card)<{ isActive: boolean }>`
   height: 100%;
+
+  ${(props) => {
+    if (props.isActive) {
+      return css`
+        &,
+        &.bp4-card.bp4-interactive:hover {
+          box-shadow: 0 0 0 2px ${Colors.BLUE3};
+        }
+
+        .bp4-dark &,
+        .bp4-dark &.bp4-card.bp4-interactive:hover {
+          box-shadow: 0 0 0 2px ${Colors.BLUE5};
+        }
+      `
+    }
+  }}
 `
 
-const AppNavbarContentCardLink = styled.a`
+const AppNavbarContentLink = styled(ExternalLink)`
+  display: flex;
+  align-items: center;
+
+  svg {
+    margin-left: 3px;
+  }
+`
+
+const AppNavbarContentCardLink = styled(ExternalNavLink)`
   &,
   &:hover,
   &:visited,
@@ -64,17 +91,19 @@ const AppNavbarContent = () => (
           <AppNavbarContentGrid>
             {NavigationGroup.groupLinks.map((NavigationItem, i) => (
               <AppNavbarContentCardLink
+                to={{ pathname: NavigationItem.path }}
                 target={NavigationItem.target}
-                href={NavigationItem.path}
                 key={`${NavigationItem.path}-${i}`}>
-                <AppNavbarContentCard interactive>
-                  <H4>
-                    <a target={NavigationItem.target} href={NavigationItem.path}>
-                      {NavigationItem.name} {NavigationItem.target === '_blank' && <FiExternalLink />}
-                    </a>
-                  </H4>
-                  <p>{NavigationItem.description}</p>
-                </AppNavbarContentCard>
+                {({ isActive }) => (
+                  <AppNavbarContentCard interactive isActive={isActive}>
+                    <H4>
+                      <AppNavbarContentLink to={{ pathname: NavigationItem.path }} target={NavigationItem.target}>
+                        {NavigationItem.name} {NavigationItem.target === '_blank' && <Icon icon="share" />}
+                      </AppNavbarContentLink>
+                    </H4>
+                    <p>{NavigationItem.description}</p>
+                  </AppNavbarContentCard>
+                )}
               </AppNavbarContentCardLink>
             ))}
           </AppNavbarContentGrid>
@@ -99,7 +128,7 @@ const AppNavbarLogoContainer = styled.div`
 const AppNavbarContainer = styled(Navbar)`
   padding: 0;
 
-  .${Classes.DARK} & {
+  .bp4-dark & {
     box-shadow: 0 0 0 1px rgb(17 20 24 / 10%), 0 1px 1px rgb(17 20 24 / 20%);
   }
 
@@ -143,9 +172,9 @@ export const AppNavbar = ({ appTheme, toggleAppTheme }: AppNavbarProps) => {
             </Button>
           </NavbarGroup>
           <AppNavbarLogoContainer>
-            <a href="/">
+            <ExternalLink to="/">
               <AppLogo />
-            </a>
+            </ExternalLink>
           </AppNavbarLogoContainer>
           <NavbarGroup align="right">
             <Button large minimal onClick={toggleAppTheme} icon={appTheme === 'dark' ? 'flash' : 'moon'} />

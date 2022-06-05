@@ -1,7 +1,6 @@
-import { AddToHomeScreen } from '../components/AddToHomeScreen'
+import { Outlet } from 'react-router-dom'
 import { AppFooter } from '../components/AppFooter'
 import { AppNavbar } from '../components/AppNavbar'
-import { HomeVideoHero } from '../components/HomeVideoHero'
 import { useAppTheme } from '../hooks/useAppTheme'
 
 export const App = () => {
@@ -10,8 +9,7 @@ export const App = () => {
   return (
     <>
       <AppNavbar appTheme={appTheme} toggleAppTheme={toggleAppTheme} />
-      <HomeVideoHero />
-      <AddToHomeScreen />
+      <Outlet />
       <AppFooter />
     </>
   )
