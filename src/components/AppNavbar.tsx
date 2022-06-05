@@ -1,4 +1,5 @@
 import { Button, Card, Classes, H4, Navbar, NavbarGroup } from '@blueprintjs/core'
+import { FiExternalLink } from 'react-icons/fi'
 import styled from 'styled-components'
 import { MobileDeviceMaxSize } from '../config/MobileDeviceMaxSize'
 import { NavigationConfig } from '../config/NavigationConfig'
@@ -61,13 +62,18 @@ const AppNavbarContent = () => (
             {NavigationGroup.groupTitle}
           </AppNavbarContentGroupTitle>
           <AppNavbarContentGrid>
-            {NavigationGroup.groupLinks.map((NavigationGroupItem, i) => (
-              <AppNavbarContentCardLink href={NavigationGroupItem.path} key={`${NavigationGroupItem.path}-${i}`}>
+            {NavigationGroup.groupLinks.map((NavigationItem, i) => (
+              <AppNavbarContentCardLink
+                target={NavigationItem.target}
+                href={NavigationItem.path}
+                key={`${NavigationItem.path}-${i}`}>
                 <AppNavbarContentCard interactive>
                   <H4>
-                    <a href={NavigationGroupItem.path}>{NavigationGroupItem.name}</a>
+                    <a target={NavigationItem.target} href={NavigationItem.path}>
+                      {NavigationItem.name} {NavigationItem.target === '_blank' && <FiExternalLink />}
+                    </a>
                   </H4>
-                  <p>{NavigationGroupItem.description}</p>
+                  <p>{NavigationItem.description}</p>
                 </AppNavbarContentCard>
               </AppNavbarContentCardLink>
             ))}

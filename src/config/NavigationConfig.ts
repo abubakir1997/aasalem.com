@@ -1,6 +1,9 @@
+import { HTMLAttributeAnchorTarget } from 'react'
+
 export interface INavigationConfigGroupLink {
   name: string
   path: string
+  target?: HTMLAttributeAnchorTarget
   description: string
 }
 
@@ -46,7 +49,13 @@ export const NavigationConfig: INavigationConfig = [
       {
         name: 'Resume',
         path: '#',
-        description: 'My professional software engineering resume',
+        description: 'My professional software engineering resume.',
+      },
+      {
+        name: 'Anew RMS',
+        path: 'https://next-rms.web.app/signin/anewsystems',
+        target: '_blank',
+        description: 'A powerful retail management system.',
       },
     ],
   },
