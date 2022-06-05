@@ -3,7 +3,7 @@ import { App } from './App'
 import { Home } from './Home'
 import { PageNotFound } from './PageNotFound'
 
-export const Router = () => (
+export const AppRoutes = () => (
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />}>
