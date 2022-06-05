@@ -1,15 +1,15 @@
 import styled from 'styled-components'
 import { MobileDeviceMaxSize } from '../config/MobileDeviceMaxSize'
 // @ts-ignore
-import AppHeroVideo from '../images/aasalem-hero.mp4'
+import HomeHeroVideo from '../images/aasalem-hero.mp4'
 
-const AppVideoContainer = styled.div`
+const HomeVideoContainer = styled.div`
   position: relative;
   max-height: calc(100% - 60px);
   min-height: 650px;
 `
 
-const AppVideo = styled.video`
+const HomeVideo = styled.video`
   z-index: -1;
   position: relative;
   width: 100vw;
@@ -19,7 +19,7 @@ const AppVideo = styled.video`
   object-fit: cover;
 `
 
-const AppVideoOverlay = styled.div`
+const HomeVideoOverlay = styled.div`
   z-index: 0;
   position: absolute;
   top: 0;
@@ -35,7 +35,7 @@ const AppVideoOverlay = styled.div`
   justify-content: center;
 `
 
-const AppVideoOverlayHeader = styled.h1`
+const HomeVideoOverlayHeader = styled.h1`
   @font-face {
     font-family: 'Mushaf Page 365';
     src: local('QCF_P365'),
@@ -61,7 +61,7 @@ const AppVideoOverlayHeader = styled.h1`
   }
 `
 
-const AppVideoOverlayHeaderEnglish = styled.div`
+const HomeVideoOverlayHeaderEnglish = styled.div`
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1.5rem;
   margin-top: 2rem;
@@ -114,24 +114,24 @@ const AppVideoOverlayHeaderEnglish = styled.div`
   }
 `
 
-export const AppVideoHero = () => (
-  <AppVideoContainer>
-    <AppVideo autoPlay loop muted>
-      <source src={AppHeroVideo} type="video/mp4" />
+export const HomeVideoHero = () => (
+  <HomeVideoContainer>
+    <HomeVideo autoPlay loop muted>
+      <source src={HomeHeroVideo} type="video/mp4" />
       Your browser does not support the video tag.
-    </AppVideo>
-    <AppVideoOverlay>
-      <AppVideoOverlayHeader>
+    </HomeVideo>
+    <HomeVideoOverlay>
+      <HomeVideoOverlayHeader>
         <div>ﮱﯓﯔﯕﯖﯗ ﯘ</div>
         <div>ﯙﯚﯛﯜﯝﯞ</div>
-        <AppVideoOverlayHeaderEnglish>
+        <HomeVideoOverlayHeaderEnglish>
           <div>
             <div>And the servants of the Most Merciful are those</div>
             <div>who walk upon the earth easily, and when the ignorant</div>
             <div>address them (harshly), they say (words of) peace</div>
           </div>
-        </AppVideoOverlayHeaderEnglish>
-      </AppVideoOverlayHeader>
-    </AppVideoOverlay>
-  </AppVideoContainer>
+        </HomeVideoOverlayHeaderEnglish>
+      </HomeVideoOverlayHeader>
+    </HomeVideoOverlay>
+  </HomeVideoContainer>
 )

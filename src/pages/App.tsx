@@ -1,7 +1,7 @@
-import { AppAddToHomeScreen } from '../components/AppAddToHomeScreen'
+import { AddToHomeScreen } from '../components/AddToHomeScreen'
 import { AppFooter } from '../components/AppFooter'
 import { AppNavbar } from '../components/AppNavbar'
-import { AppVideoHero } from '../components/AppVideoHero'
+import { HomeVideoHero } from '../components/HomeVideoHero'
 import { useAppTheme } from '../hooks/useAppTheme'
 
 export const App = () => {
@@ -10,8 +10,8 @@ export const App = () => {
   return (
     <>
       <AppNavbar appTheme={appTheme} toggleAppTheme={toggleAppTheme} />
-      <AppVideoHero />
-      <AppAddToHomeScreen />
+      <HomeVideoHero />
+      <AddToHomeScreen />
       <AppFooter />
     </>
   )

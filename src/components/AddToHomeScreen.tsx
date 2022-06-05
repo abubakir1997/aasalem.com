@@ -4,9 +4,9 @@ import { FiShare } from 'react-icons/fi'
 import styled from 'styled-components'
 import { MobileDeviceMaxSize } from '../config/MobileDeviceMaxSize'
 import { PhoneMockup } from '../elements/PhoneMockup'
-import AppAddToHomeScreenImage from '../images/aasalem-add-to-homescreen.png'
+import AddToHomeScreenImage from '../images/aasalem-add-to-homescreen.png'
 
-const AppAddToHomeScreenContainer = styled.div`
+const AddToHomeScreenContainer = styled.div`
   padding: 4rem;
   display: flex;
   flex-direction: row;
@@ -20,7 +20,7 @@ const AppAddToHomeScreenContainer = styled.div`
   }
 `
 
-const AppAddToHomeScreenDetails = styled.div`
+const AddToHomeScreenDetails = styled.div`
   margin-top: auto;
   margin-bottom: auto;
   margin-left: 4rem;
@@ -38,39 +38,39 @@ const AppAddToHomeScreenDetails = styled.div`
   }
 `
 
-const AppAddToHomeScreenTitle = styled.div`
+const AddToHomeScreenTitle = styled.div`
   font-size: 36px;
   font-weight: 800;
   margin-bottom: 2rem;
 `
 
-const AppAddToHomeScreenDescription = styled.p`
+const AddToHomeScreenDescription = styled.p`
   font-weight: 500;
   margin-top: 2rem;
 `
 
-const AppAddToHomeScreenImageElement = styled.img`
+const AddToHomeScreenImageElement = styled.img`
   width: 100%;
   object-fit: contain;
 `
 
-export const AppAddToHomeScreen = () => (
-  <AppAddToHomeScreenContainer>
+export const AddToHomeScreen = () => (
+  <AddToHomeScreenContainer>
     <PhoneMockup>
-      <AppAddToHomeScreenImageElement src={AppAddToHomeScreenImage} alt="Add to Home Screen" />
+      <AddToHomeScreenImageElement src={AddToHomeScreenImage} alt="Add to Home Screen" />
     </PhoneMockup>
-    <AppAddToHomeScreenDetails>
-      <AppAddToHomeScreenTitle>Add to Home Screen</AppAddToHomeScreenTitle>
+    <AddToHomeScreenDetails>
+      <AddToHomeScreenTitle>Add to Home Screen</AddToHomeScreenTitle>
       <p>
         Click the share button <FiShare size={28} color={Colors.BLUE3} />
       </p>
       <p>
         Select Add to Home Screen <BsPlusSquare size={28} color={Colors.BLUE3} />
       </p>
-      <AppAddToHomeScreenDescription>
+      <AddToHomeScreenDescription>
         Stay up to date with all content from <br />
         <a href="/">aasalem.com</a>
-      </AppAddToHomeScreenDescription>
-    </AppAddToHomeScreenDetails>
-  </AppAddToHomeScreenContainer>
+      </AddToHomeScreenDescription>
+    </AddToHomeScreenDetails>
+  </AddToHomeScreenContainer>
 )
