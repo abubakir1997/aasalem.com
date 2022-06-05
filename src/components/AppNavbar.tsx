@@ -46,9 +46,23 @@ const AppNavbarContentCard = styled(Card)<{ isActive: boolean }>`
   }}
 `
 
-const AppNavbarContentLink = styled(ExternalLink)`
+const AppNavbarContentHeader = styled(H4)`
   display: flex;
   align-items: center;
+  color: ${Colors.BLUE2};
+
+  .bp4-dark & {
+    color: ${Colors.BLUE5};
+  }
+
+  ${AppNavbarContentCard}:hover & {
+    text-decoration: underline;
+    text-decoration-color: ${Colors.BLUE2};
+
+    .bp4-dark & {
+      text-decoration-color: ${Colors.BLUE5};
+    }
+  }
 
   svg {
     margin-left: 3px;
@@ -80,7 +94,11 @@ const AppNavbarContentGroupTitle = styled.div`
   margin-bottom: 7px;
 `
 
-const AppNavbarContent = () => (
+interface AppNavbarContentProps {
+  toggleContentOpen: () => any
+}
+
+const AppNavbarContent = ({ toggleContentOpen }: AppNavbarContentProps) => (
   <AppNavbarContentCardContainer elevation={2}>
     <Container>
       {NavigationConfig.map((NavigationGroup, i) => (
@@ -91,16 +109,15 @@ const AppNavbarContent = () => (
           <AppNavbarContentGrid>
             {NavigationGroup.groupLinks.map((NavigationItem, i) => (
               <AppNavbarContentCardLink
+                onClick={toggleContentOpen}
                 to={{ pathname: NavigationItem.path }}
                 target={NavigationItem.target}
                 key={`${NavigationItem.path}-${i}`}>
                 {({ isActive }) => (
                   <AppNavbarContentCard interactive isActive={isActive}>
-                    <H4>
-                      <AppNavbarContentLink to={{ pathname: NavigationItem.path }} target={NavigationItem.target}>
-                        {NavigationItem.name} {NavigationItem.target === '_blank' && <Icon icon="share" />}
-                      </AppNavbarContentLink>
-                    </H4>
+                    <AppNavbarContentHeader>
+                      {NavigationItem.name} {NavigationItem.target === '_blank' && <Icon icon="share" />}
+                    </AppNavbarContentHeader>
                     <p>{NavigationItem.description}</p>
                   </AppNavbarContentCard>
                 )}
@@ -154,7 +171,7 @@ export interface AppNavbarProps {
 }
 
 export const AppNavbar = ({ appTheme, toggleAppTheme }: AppNavbarProps) => {
-  const [isContentOpen, toggleContentOpen] = useDisclosure()
+  const [isContentOpen, toggleContentOpen, closeContentOpen] = useDisclosure()
 
   return (
     <AppNavbarWrapper>
@@ -172,7 +189,7 @@ export const AppNavbar = ({ appTheme, toggleAppTheme }: AppNavbarProps) => {
             </Button>
           </NavbarGroup>
           <AppNavbarLogoContainer>
-            <ExternalLink to="/">
+            <ExternalLink to="/" onClick={closeContentOpen}>
               <AppLogo />
             </ExternalLink>
           </AppNavbarLogoContainer>
@@ -182,7 +199,7 @@ export const AppNavbar = ({ appTheme, toggleAppTheme }: AppNavbarProps) => {
         </Container>
       </AppNavbarContainer>
       <Collapser isOpen={isContentOpen}>
-        <AppNavbarContent />
+        <AppNavbarContent toggleContentOpen={toggleContentOpen} />
       </Collapser>
     </AppNavbarWrapper>
   )
