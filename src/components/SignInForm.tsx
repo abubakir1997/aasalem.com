@@ -8,10 +8,17 @@ export const Form = styled.form`
   font-size: 1rem;
   font-weight: 600;
   min-width: 100%;
+  margin: auto 0;
 `
 
 export const FormLogoContainer = styled.div`
   margin-bottom: 2em;
+  display: flex;
+  flex-direction: column;
+`
+
+export const FormLogoLink = styled(Link)`
+  align-self: center;
 `
 
 export const FormHeaderContainer = styled.div`
@@ -39,7 +46,9 @@ export const SignInForm = () => {
   return (
     <Form>
       <FormLogoContainer>
-        <AppLogo center size={125} />
+        <FormLogoLink to="/">
+          <AppLogo size={192} />
+        </FormLogoLink>
         <FormHeaderContainer>
           <FormHeader>Sign in to your admin account</FormHeader>
           <FormSubheader>
@@ -78,7 +87,9 @@ export const ForgotPasswordForm = () => {
   return (
     <Form>
       <FormLogoContainer>
-        <AppLogo center size={125} />
+        <FormLogoLink to="/">
+          <AppLogo size={192} />
+        </FormLogoLink>
         <FormHeaderContainer>
           <FormHeader>Reset your account password</FormHeader>
           <FormSubheader>
