@@ -175,6 +175,9 @@ export const AppFooter = () => (
           </div>
           <div>
             <AppFooterContentTitle>Links</AppFooterContentTitle>
+            <AppFooterContentText>
+              <ExternalLink to="/signin">Admin Sign In</ExternalLink>
+            </AppFooterContentText>
             {NavigationConfig.map((NavigationGroup) =>
               NavigationGroup.groupLinks.map((NavigationItem, i) => (
                 <AppFooterContentText key={`${NavigationItem.path}-${i}`}>

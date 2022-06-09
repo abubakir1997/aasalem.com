@@ -4,6 +4,7 @@ import AppLogoImage from '../images/aasalem-logo.png'
 
 interface AppLogoImgElementProps extends HTMLProps<HTMLImageElement> {
   size?: number
+  center?: boolean
 }
 
 const AppLogoImgElement = styled.img<AppLogoImgElementProps>`
@@ -14,6 +15,15 @@ const AppLogoImgElement = styled.img<AppLogoImgElementProps>`
     if (typeof props.size === 'number') {
       return css`
         height: ${props.size}px;
+      `
+    }
+  }}
+
+  ${(props) => {
+    if (props.center) {
+      return css`
+        margin: 0 auto;
+        display: block;
       `
     }
   }}
