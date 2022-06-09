@@ -116,7 +116,7 @@ const HomeVideoOverlayHeaderEnglish = styled.div`
 
 export const HomeVideoHero = () => (
   <HomeVideoContainer>
-    <HomeVideo autoPlay loop muted>
+    <HomeVideo autoPlay loop playsInline muted>
       <source src={HomeHeroVideo} type="video/mp4" />
       Your browser does not support the video tag.
     </HomeVideo>
