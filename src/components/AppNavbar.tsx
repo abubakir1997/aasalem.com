@@ -9,6 +9,8 @@ import { AppTheme } from '../hooks/useAppTheme'
 import { useDisclosure } from '../hooks/useDisclosure'
 import { AppLogo } from './AppLogo'
 
+export const APP_NAVBAR_HEIGHT = 60
+
 const AppNavbarContentGrid = styled.div`
   display: grid;
   grid-gap: 14px;
@@ -22,7 +24,7 @@ const AppNavbarContentGrid = styled.div`
 const AppNavbarContentCardContainer = styled(Card)`
   padding-left: 0px;
   padding-right: 0px;
-  max-height: calc(100vh - 60px);
+  max-height: calc(100vh - ${APP_NAVBAR_HEIGHT}px);
   overflow: auto;
 `
 
@@ -152,7 +154,7 @@ const AppNavbarContainer = styled(Navbar)`
   &,
   > ${Container}, > ${Container} > .bp4-navbar-group,
   > ${Container} > ${AppNavbarLogoContainer} {
-    height: 60px;
+    height: ${APP_NAVBAR_HEIGHT}px;
   }
 `
 
@@ -161,8 +163,13 @@ const AppNavbarWrapper = styled.div`
   top: 0;
   left: 0;
   width: 100%;
-  height: 60px;
+  height: ${APP_NAVBAR_HEIGHT}px;
   z-index: 1000;
+`
+
+const AppNavbarGap = styled.div`
+  width: 100%;
+  height: ${APP_NAVBAR_HEIGHT}px;
 `
 
 export interface AppNavbarProps {
@@ -174,33 +181,36 @@ export const AppNavbar = ({ appTheme, toggleAppTheme }: AppNavbarProps) => {
   const [isContentOpen, toggleContentOpen, closeContentOpen] = useDisclosure()
 
   return (
-    <AppNavbarWrapper>
-      <AppNavbarContainer>
-        <Container>
-          <NavbarGroup align="left">
-            <Button
-              large
-              minimal
-              intent="primary"
-              onClick={toggleContentOpen}
-              rightIcon={isContentOpen ? 'chevron-up' : 'chevron-down'}
-              active={isContentOpen}>
-              Content
-            </Button>
-          </NavbarGroup>
-          <AppNavbarLogoContainer>
-            <ExternalLink to="/" onClick={closeContentOpen}>
-              <AppLogo />
-            </ExternalLink>
-          </AppNavbarLogoContainer>
-          <NavbarGroup align="right">
-            <Button large minimal onClick={toggleAppTheme} icon={appTheme === 'dark' ? 'flash' : 'moon'} />
-          </NavbarGroup>
-        </Container>
-      </AppNavbarContainer>
-      <Collapser isOpen={isContentOpen}>
-        <AppNavbarContent toggleContentOpen={toggleContentOpen} />
-      </Collapser>
-    </AppNavbarWrapper>
+    <>
+      <AppNavbarWrapper>
+        <AppNavbarContainer>
+          <Container>
+            <NavbarGroup align="left">
+              <Button
+                large
+                minimal
+                intent="primary"
+                onClick={toggleContentOpen}
+                rightIcon={isContentOpen ? 'chevron-up' : 'chevron-down'}
+                active={isContentOpen}>
+                Content
+              </Button>
+            </NavbarGroup>
+            <AppNavbarLogoContainer>
+              <ExternalLink to="/" onClick={closeContentOpen}>
+                <AppLogo />
+              </ExternalLink>
+            </AppNavbarLogoContainer>
+            <NavbarGroup align="right">
+              <Button large minimal onClick={toggleAppTheme} icon={appTheme === 'dark' ? 'flash' : 'moon'} />
+            </NavbarGroup>
+          </Container>
+        </AppNavbarContainer>
+        <Collapser isOpen={isContentOpen}>
+          <AppNavbarContent toggleContentOpen={toggleContentOpen} />
+        </Collapser>
+      </AppNavbarWrapper>
+      <AppNavbarGap />
+    </>
   )
 }
